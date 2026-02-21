@@ -28,6 +28,28 @@ export default function Landing() {
         </div>
       </div>
 
+      {/* The Problem — Statistics */}
+      <div className="bg-slate-800 rounded-2xl p-10 mb-16 text-white">
+        <h2 className="text-2xl font-bold text-center mb-2">The Scale of the Problem</h2>
+        <p className="text-slate-400 text-center text-sm mb-8 max-w-xl mx-auto">
+          Millions of Americans are locked out of jobs, housing, and opportunity by old records the law says can be cleared.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { stat: '70M+', label: 'Americans have a criminal record', sub: 'Nearly 1 in 3 adults' },
+            { stat: '93%', label: 'of eligible people never get their records cleared', sub: 'Due to cost, complexity, or lack of awareness' },
+            { stat: '$1K–$5K', label: 'typical cost to hire an expungement attorney', sub: 'Out of reach for most affected individuals' },
+            { stat: '90%', label: 'of employers run background checks', sub: 'Old records block second chances' },
+          ].map((item, i) => (
+            <div key={i} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">{item.stat}</div>
+              <div className="text-sm text-slate-300 font-medium mb-1">{item.label}</div>
+              <div className="text-xs text-slate-500">{item.sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* How it works */}
       <div className="grid md:grid-cols-3 gap-8 mb-16">
         {[

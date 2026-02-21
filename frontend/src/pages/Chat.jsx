@@ -251,6 +251,56 @@ export default function Chat() {
                 </button>
               ))}
             </div>
+
+            {/* Try it out — sample RAP sheets */}
+            <div className="mt-10 pt-6 border-t border-slate-200">
+              <p className="text-sm font-medium text-slate-600 mb-1">Try it out</p>
+              <p className="text-xs text-slate-400 mb-4">
+                Download a sample RAP sheet, then click the attach button below to upload it and test the full flow.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-lg mx-auto">
+                {[
+                  {
+                    state: 'Colorado',
+                    desc: 'Misdemeanor petty theft, probation completed',
+                    file: '/samples/sample-rap-sheet-colorado.png',
+                    expected: 'Likely eligible',
+                  },
+                  {
+                    state: 'California',
+                    desc: 'Felony reduced to misdemeanor (Prop 47)',
+                    file: '/samples/sample-rap-sheet-california.png',
+                    expected: 'Likely eligible',
+                  },
+                  {
+                    state: 'Texas',
+                    desc: 'DWI + marijuana possession, two entries',
+                    file: '/samples/sample-rap-sheet-texas.png',
+                    expected: 'Mixed eligibility',
+                  },
+                ].map((sample) => (
+                  <a
+                    key={sample.state}
+                    href={sample.file}
+                    download={`sample-rap-sheet-${sample.state.toLowerCase()}.png`}
+                    className="block bg-white border border-slate-200 rounded-lg p-3 hover:border-blue-300 hover:bg-blue-50 transition-colors text-left no-underline"
+                  >
+                    <div className="text-xs font-semibold text-slate-800 mb-0.5">{sample.state}</div>
+                    <div className="text-[10px] text-slate-500 mb-2">{sample.desc}</div>
+                    <div className="flex items-center justify-between">
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                        sample.expected === 'Likely eligible'
+                          ? 'bg-green-100 text-green-700'
+                          : 'bg-yellow-100 text-yellow-700'
+                      }`}>
+                        {sample.expected}
+                      </span>
+                      <span className="text-[10px] text-blue-600 font-medium">Download</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 

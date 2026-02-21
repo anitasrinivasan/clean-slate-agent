@@ -104,7 +104,7 @@ try {
         accepts: [
           {
             scheme: 'exact',
-            price: '$0.001',
+            price: '$0.10',
             network: 'eip155:84532',
             payTo: walletAddr,
           },
@@ -116,7 +116,7 @@ try {
         accepts: [
           {
             scheme: 'exact',
-            price: '$0.001',
+            price: '$0.10',
             network: 'eip155:84532',
             payTo: walletAddr,
           },
@@ -129,7 +129,7 @@ try {
     app.use(paymentMiddleware(x402Routes, server));
     x402Enabled = true;
     console.log('✓ x402 payment middleware active');
-    console.log(`  Employer assessments require $0.001 USDC → ${walletAddr}`);
+    console.log(`  Employer assessments require $0.10 USDC → ${walletAddr}`);
   } else {
     console.log('⚠ WALLET_ADDRESS not set — x402 payments disabled (employer endpoint is free)');
   }
@@ -533,7 +533,7 @@ app.get('/api/agent/status', async (req, res) => {
       enabled: x402Enabled,
       network: 'eip155:84532 (Base Sepolia)',
       paymentAsset: 'USDC',
-      assessmentPrice: '$0.001',
+      assessmentPrice: '$0.10',
       facilitator: process.env.X402_FACILITATOR_URL || 'https://www.x402.org/facilitator',
     },
     canton: cantonStatus,

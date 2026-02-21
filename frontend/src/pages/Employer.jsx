@@ -67,7 +67,7 @@ function X402PaymentFlow({ paymentInfo, flowStep }) {
             <div className="ml-4"><span className="text-blue-400">&quot;x402Version&quot;</span>: <span className="text-amber-300">{paymentInfo.x402Version}</span>,</div>
             <div className="ml-4"><span className="text-blue-400">&quot;scheme&quot;</span>: <span className="text-amber-300">&quot;{paymentInfo.scheme}&quot;</span>,</div>
             <div className="ml-4"><span className="text-blue-400">&quot;network&quot;</span>: <span className="text-amber-300">&quot;{paymentInfo.network}&quot;</span>,</div>
-            <div className="ml-4"><span className="text-blue-400">&quot;amount&quot;</span>: <span className="text-amber-300">{paymentInfo.amount}</span> <span className="text-slate-500">// $0.001 USDC</span></div>
+            <div className="ml-4"><span className="text-blue-400">&quot;amount&quot;</span>: <span className="text-amber-300">{paymentInfo.amount}</span> <span className="text-slate-500">// $0.10 USDC</span></div>
             <div className="ml-4"><span className="text-blue-400">&quot;payTo&quot;</span>: <span className="text-amber-300">&quot;{paymentInfo.payTo}&quot;</span> <span className="text-slate-500">// Agent wallet</span></div>
             <div><span className="text-slate-500">{'}'}</span></div>
           </div>
@@ -77,7 +77,7 @@ function X402PaymentFlow({ paymentInfo, flowStep }) {
               { label: 'Protocol', value: `x402 v${paymentInfo.x402Version || '1'}` },
               { label: 'Network', value: 'Base Sepolia' },
               { label: 'Asset', value: 'USDC' },
-              { label: 'Amount', value: '$0.001' },
+              { label: 'Amount', value: '$0.10' },
             ].map((item) => (
               <div key={item.label} className="bg-slate-50 rounded-lg p-2">
                 <div className="text-[10px] text-slate-500">{item.label}</div>
@@ -331,7 +331,7 @@ export default function Employer() {
             disabled={loading || !credentialId.trim()}
             className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {loading ? 'Verifying...' : 'Verify Eligibility ($0.001 USDC)'}
+            {loading ? 'Verifying...' : 'Verify Eligibility ($0.10 USDC)'}
           </button>
         </form>
       )}
@@ -404,7 +404,7 @@ export default function Employer() {
             </div>
             <div className="flex items-start gap-3">
               <span className="bg-blue-100 text-blue-700 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</span>
-              <div><strong>You pay $0.001 USDC</strong> via x402 protocol for the verification</div>
+              <div><strong>You pay $0.10 USDC</strong> via x402 protocol for the verification</div>
             </div>
             <div className="flex items-start gap-3">
               <span className="bg-blue-100 text-blue-700 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">4</span>

@@ -188,10 +188,10 @@ export default function AgentStatus() {
             <h3 className="text-sm font-medium text-slate-600 mb-3">Revenue (Employer Assessments)</h3>
             <div className="bg-green-50 rounded-lg p-4">
               <div className="text-2xl font-bold text-green-700">
-                {blockchain.totalRevenue || '0'} ETH
+                ${((metrics.employerAssessments || 0) * 0.10).toFixed(2)} USDC
               </div>
               <div className="text-xs text-green-600 mt-1">
-                Via x402 protocol payments
+                {metrics.employerAssessments || 0} verifications at $0.10 each via x402
               </div>
             </div>
           </div>

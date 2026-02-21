@@ -3,6 +3,7 @@ import Landing from './pages/Landing'
 import Chat from './pages/Chat'
 import Employer from './pages/Employer'
 import AgentStatus from './pages/AgentStatus'
+import FAQ from './pages/FAQ'
 
 function Nav() {
   const location = useLocation()
@@ -19,6 +20,7 @@ function Nav() {
           ['/', 'Home'],
           ['/chat', 'Get Help'],
           ['/employer', 'Employers'],
+          ['/faq', 'FAQ'],
           ['/agent-status', 'Agent Status'],
         ].map(([path, label]) => (
           <Link
@@ -46,6 +48,7 @@ export default function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/employer" element={<Employer />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/agent-status" element={<AgentStatus />} />
       </Routes>
     </div>
