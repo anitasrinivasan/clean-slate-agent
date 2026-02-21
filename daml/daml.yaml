@@ -1,0 +1,8 @@
+sdk-version: 2.10.3
+name: clean-slate
+version: 0.1.0
+source: .
+dependencies:
+  - daml-prim
+  - daml-stdlib
+  - daml-script

@@ -1,0 +1,15 @@
+// Bootstrap script: connect participant to domain and upload DAR
+sandbox.domains.connect_local(local)
+
+// Upload the Clean Slate DAR
+val darPath = "daml/.daml/dist/clean-slate-0.1.0.dar"
+participants.local.foreach(_.dars.upload(darPath))
+
+// Allocate parties
+val individual = sandbox.ledger_api.parties.allocate("Individual", "Individual")
+val agent = sandbox.ledger_api.parties.allocate("CleanSlateAgent", "CleanSlateAgent")
+val employer = sandbox.ledger_api.parties.allocate("Employer", "Employer")
+
+println(s"Individual party: ${individual.party}")
+println(s"Agent party: ${agent.party}")
+println(s"Employer party: ${employer.party}")

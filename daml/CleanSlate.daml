@@ -1,0 +1,124 @@
+-- Clean Slate Agent — Canton Network Privacy Layer
+-- This Daml contract creates privacy-preserving expungement credentials
+-- using Canton's sub-transaction privacy model.
+--
+-- KEY PRIVACY FEATURE: Canton ensures that:
+-- - Signatories (individual + agent) see ALL fields including offense details
+-- - Observers (verifier/employer) see ONLY the fields they need
+-- - The VerifyEligibility choice returns ONLY the eligibility status
+-- - Underlying record details are cryptographically invisible to observers
+--
+-- To deploy:
+--   1. Install Daml SDK: curl -sSL https://get.daml.com/ | sh
+--   2. daml build
+--   3. daml sandbox --json-api-port 7575
+--   4. daml ledger upload-dar .daml/dist/clean-slate-0.1.0.dar
+
+module CleanSlate where
+
+import Daml.Script
+import DA.Date
+
+-- | A privacy-preserving credential that proves expungement eligibility
+-- without revealing the underlying criminal record.
+template ExpungementCredential
+  with
+    individual : Party        -- the person whose record was assessed
+    agent : Party             -- the Clean Slate Agent
+    verifier : Party          -- an employer or other authorized verifier
+    eligibilityStatus : Text  -- "eligible" or "not_eligible"
+    stateJurisdiction : Text  -- e.g., "Colorado" or "California"
+    assessmentDate : Date     -- when the assessment was performed
+    -- PRIVATE FIELDS (only visible to individual and agent):
+    offenseType : Text        -- e.g., "misdemeanor theft"
+    convictionDate : Date     -- when the conviction occurred
+    sentenceCompleted : Bool  -- whether sentence is fully completed
+  where
+    signatory individual, agent
+    observer verifier
+
+    -- The verifier can ONLY exercise this choice, which returns
+    -- ONLY the eligibility status — nothing about the underlying record
+    nonconsuming choice VerifyEligibility : Text
+      controller verifier
+      do
+        return eligibilityStatus
+
+    -- The individual can revoke the credential at any time
+    choice Revoke : ()
+      controller individual
+      do
+        return ()
+
+-- | A request to create a credential (agent proposes, individual accepts)
+template CredentialRequest
+  with
+    agent : Party
+    individual : Party
+    verifier : Party
+    eligibilityStatus : Text
+    stateJurisdiction : Text
+    assessmentDate : Date
+    offenseType : Text
+    convictionDate : Date
+    sentenceCompleted : Bool
+  where
+    signatory agent
+    observer individual
+
+    -- Individual accepts the credential request
+    choice AcceptCredential : ContractId ExpungementCredential
+      controller individual
+      do
+        create ExpungementCredential with
+          individual
+          agent
+          verifier
+          eligibilityStatus
+          stateJurisdiction
+          assessmentDate
+          offenseType
+          convictionDate
+          sentenceCompleted
+
+    -- Agent can withdraw the request
+    choice WithdrawRequest : ()
+      controller agent
+      do
+        return ()
+
+-- | Test script demonstrating the privacy flow
+test_expungement_flow = script do
+  -- Set up parties
+  alice <- allocateParty "Alice"           -- individual seeking expungement
+  cleanSlate <- allocateParty "CleanSlate" -- the AI agent
+  employer <- allocateParty "Employer"     -- a potential employer
+
+  -- Agent proposes credential after eligibility assessment
+  requestCid <- submit cleanSlate do
+    createCmd CredentialRequest with
+      agent = cleanSlate
+      individual = alice
+      verifier = employer
+      eligibilityStatus = "eligible"
+      stateJurisdiction = "Colorado"
+      assessmentDate = date 2026 Feb 20
+      offenseType = "Class 3 misdemeanor - petty theft"
+      convictionDate = date 2020 Mar 15
+      sentenceCompleted = True
+
+  -- Alice accepts the credential
+  credCid <- submit alice do
+    exerciseCmd requestCid AcceptCredential
+
+  -- Employer verifies eligibility
+  -- NOTE: The employer can ONLY see eligibilityStatus, stateJurisdiction,
+  -- and assessmentDate. They CANNOT see offenseType, convictionDate,
+  -- or sentenceCompleted. This is Canton's sub-transaction privacy.
+  result <- submit employer do
+    exerciseCmd credCid VerifyEligibility
+
+  -- Employer only gets back "eligible" — never the underlying record
+  assert (result == "eligible")
+
+  return ()

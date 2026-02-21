@@ -1,0 +1,218 @@
+{
+  "states": {
+    "Colorado": {
+      "abbreviation": "CO",
+      "terminology": "sealing",
+      "statutes": ["C.R.S. § 24-72-706", "C.R.S. § 24-72-708"],
+      "eligibleOffenses": [
+        { "category": "Petty offenses and drug misdemeanors", "waitingPeriod": "Immediately after completion of sentence" },
+        { "category": "Class 2 & 3 misdemeanors", "waitingPeriod": "2 years after completion of sentence" },
+        { "category": "Class 1 misdemeanors", "waitingPeriod": "3 years after completion of sentence" },
+        { "category": "Class 4, 5, 6 felonies", "waitingPeriod": "3 years after completion of sentence" },
+        { "category": "Drug felonies (Class 4)", "waitingPeriod": "3 years after completion of sentence" }
+      ],
+      "exclusions": ["Class 1-3 felonies", "Sex offenses", "DUI/DWAI", "Domestic violence", "Child abuse", "Elder abuse"],
+      "sentenceCompletion": "Includes jail time, probation, parole, and paying all fines and restitution",
+      "banTheBox": {
+        "applicable": true,
+        "name": "Colorado Chance to Compete Act",
+        "statute": "C.R.S. § 8-2-126",
+        "details": "Employers with 11+ employees cannot ask about criminal history on initial application"
+      },
+      "process": "File petition in court where convicted. Filing fee required (fee waivers available). Court hearing may be required.",
+      "notes": "Colorado uses 'sealing' rather than 'expungement'. Sealed records are hidden from most background checks but not destroyed."
+    },
+    "California": {
+      "abbreviation": "CA",
+      "terminology": "expungement (dismissal)",
+      "statutes": ["PC § 1203.4", "PC § 1203.4a", "PC § 1203.41"],
+      "eligibleOffenses": [
+        { "category": "Most misdemeanors with probation", "waitingPeriod": "After completing probation (typically 1-3 years)" },
+        { "category": "Misdemeanors without probation", "waitingPeriod": "1 year after conviction" },
+        { "category": "Wobbler offenses (felony/misdemeanor)", "waitingPeriod": "Petition to reduce to misdemeanor first under PC 17(b), then expunge" },
+        { "category": "Felonies eligible under Prop 47", "waitingPeriod": "After completing sentence, petition to reduce to misdemeanor" }
+      ],
+      "exclusions": ["Felonies with state prison time (may qualify for Certificate of Rehabilitation instead)", "Sex offenses requiring registration", "Certain vehicle code violations"],
+      "sentenceCompletion": "Must have completed probation and not be currently charged with or serving a sentence for any offense",
+      "banTheBox": {
+        "applicable": true,
+        "name": "California Fair Chance Act (AB 1008)",
+        "statute": "Gov. Code § 12952",
+        "details": "Employers with 5+ employees cannot ask about criminal history before a conditional offer of employment"
+      },
+      "process": "File petition under PC 1203.4. No filing fee for most courts. Judge reviews and may grant without hearing.",
+      "notes": "California calls this 'dismissal' — the guilty plea is withdrawn, a not guilty plea entered, and the case dismissed. Not a true erasure."
+    },
+    "Texas": {
+      "abbreviation": "TX",
+      "terminology": "expunction and nondisclosure",
+      "statutes": ["Tex. Code Crim. Proc. Art. 55.01", "Tex. Gov't Code § 411.071-411.0736"],
+      "eligibleOffenses": [
+        { "category": "Acquittals, dismissals, pardons", "waitingPeriod": "Immediately eligible for expunction" },
+        { "category": "Class C misdemeanors (deferred adjudication)", "waitingPeriod": "180 days after completion" },
+        { "category": "Class A/B misdemeanors (deferred adjudication)", "waitingPeriod": "2 years after completion" },
+        { "category": "Felonies (deferred adjudication)", "waitingPeriod": "5 years after completion" },
+        { "category": "Certain misdemeanors (conviction, not deferred)", "waitingPeriod": "2 years after completion — nondisclosure only" }
+      ],
+      "exclusions": ["Convictions (cannot be expunged, only nondisclosure for some)", "Sex offenses", "Family violence", "Stalking", "Human trafficking", "Murder", "Aggravated kidnapping"],
+      "sentenceCompletion": "Must have completed all terms of community supervision including fines, fees, and restitution",
+      "banTheBox": {
+        "applicable": false,
+        "name": "None statewide",
+        "details": "No statewide Ban the Box law. Some cities (Austin, San Antonio) have local ordinances for city employment."
+      },
+      "process": "File petition in court. Filing fee varies by county ($300-500). Hearing typically required.",
+      "notes": "Texas distinguishes between 'expunction' (complete erasure for non-convictions) and 'nondisclosure' (sealing for deferred adjudication). Most convictions cannot be expunged."
+    },
+    "New York": {
+      "abbreviation": "NY",
+      "terminology": "sealing",
+      "statutes": ["CPL § 160.59", "CPL § 160.50"],
+      "eligibleOffenses": [
+        { "category": "Up to 2 convictions (max 1 felony)", "waitingPeriod": "10 years after sentence completion or release" },
+        { "category": "Marijuana convictions (pre-legalization)", "waitingPeriod": "Automatically sealed under MRTA" },
+        { "category": "Non-conviction records (dismissals, acquittals)", "waitingPeriod": "Automatically sealed" }
+      ],
+      "exclusions": ["Sex offenses (Article 130)", "Class A felonies", "Violent felonies (most)", "More than 2 convictions", "More than 1 felony"],
+      "sentenceCompletion": "10 years must have passed since last conviction or release from incarceration, whichever is later",
+      "banTheBox": {
+        "applicable": true,
+        "name": "New York Fair Chance Act",
+        "statute": "NYC Admin. Code § 8-107(11-a) and NY Correction Law Art. 23-A",
+        "details": "Employers cannot inquire about criminal history until after a conditional offer. State law prohibits unfair discrimination based on criminal history."
+      },
+      "process": "File motion under CPL 160.59. No fee. DA has 45 days to respond. Court hearing may be scheduled.",
+      "notes": "NY allows sealing of up to 2 convictions. Sealed records still visible to law enforcement and certain licensing bodies."
+    },
+    "Florida": {
+      "abbreviation": "FL",
+      "terminology": "sealing and expungement",
+      "statutes": ["Fla. Stat. § 943.0585 (expunge)", "Fla. Stat. § 943.059 (seal)"],
+      "eligibleOffenses": [
+        { "category": "Cases resulting in withhold of adjudication", "waitingPeriod": "Eligible for sealing immediately after completion" },
+        { "category": "Sealed records (after 10 years)", "waitingPeriod": "10 years after sealing, can petition for expungement" },
+        { "category": "Dismissed/nolle prosequi cases", "waitingPeriod": "Eligible for expungement immediately" }
+      ],
+      "exclusions": ["Any prior sealing or expungement (one-time only)", "Sexual offenses", "Arson", "Aggravated assault/battery", "Kidnapping", "Homicide", "Robbery", "Carjacking", "DUI"],
+      "sentenceCompletion": "Must have completed all sentences, probation, and conditions. Must not have any pending criminal cases.",
+      "banTheBox": {
+        "applicable": false,
+        "name": "None statewide",
+        "details": "No statewide Ban the Box law. Some counties have local ordinances."
+      },
+      "process": "Must obtain Certificate of Eligibility from FDLE ($75). Then file petition in court. One-time use only.",
+      "notes": "Florida is very restrictive — you can only seal OR expunge ONE case in your lifetime. Adjudicated guilty convictions generally cannot be sealed or expunged."
+    },
+    "Illinois": {
+      "abbreviation": "IL",
+      "terminology": "expungement and sealing",
+      "statutes": ["20 ILCS 2630/5.2"],
+      "eligibleOffenses": [
+        { "category": "Arrests not leading to conviction", "waitingPeriod": "Immediately eligible for expungement" },
+        { "category": "Qualified probation (first offenders)", "waitingPeriod": "5 years after completion of sentence" },
+        { "category": "Most misdemeanors (sealing)", "waitingPeriod": "3 years after completion of last sentence" },
+        { "category": "Class 3 and 4 felonies (sealing)", "waitingPeriod": "3 years after completion of last sentence" },
+        { "category": "Cannabis offenses under 30g", "waitingPeriod": "Automatically expunged or eligible immediately" }
+      ],
+      "exclusions": ["DUI", "Domestic battery", "Animal offenses", "Sex offenses", "Reckless driving", "Most Class 1 and 2 felonies"],
+      "sentenceCompletion": "Must have completed all terms of sentence including supervision, fees, fines, and restitution",
+      "banTheBox": {
+        "applicable": true,
+        "name": "Illinois Job Opportunities for Qualified Applicants Act",
+        "statute": "820 ILCS 75",
+        "details": "Employers with 15+ employees cannot inquire about criminal history until interview or conditional offer stage"
+      },
+      "process": "File petition in circuit court. Filing fee varies. Legal aid organizations can assist for free.",
+      "notes": "Illinois distinguishes between expungement (erasure) and sealing (hidden but accessible to law enforcement). Many felonies are eligible for sealing even if not for expungement."
+    },
+    "Pennsylvania": {
+      "abbreviation": "PA",
+      "terminology": "expungement and Clean Slate sealing",
+      "statutes": ["18 Pa.C.S. § 9122", "18 Pa.C.S. § 9122.1 (Clean Slate Act)"],
+      "eligibleOffenses": [
+        { "category": "Non-conviction records", "waitingPeriod": "Immediately eligible" },
+        { "category": "Summary offenses", "waitingPeriod": "5 years arrest-free" },
+        { "category": "Misdemeanors (2nd/3rd degree) via Clean Slate", "waitingPeriod": "10 years conviction-free — auto-sealed" },
+        { "category": "Ungraded misdemeanors with max 2 years via Clean Slate", "waitingPeriod": "10 years conviction-free — auto-sealed" },
+        { "category": "Pardoned offenses", "waitingPeriod": "After receiving gubernatorial pardon" }
+      ],
+      "exclusions": ["1st degree misdemeanors", "All felonies (not eligible for Clean Slate auto-sealing)", "Sex offenses", "Offenses involving minors", "Firearms offenses", "DUI"],
+      "sentenceCompletion": "Must have completed full sentence and been free of conviction for 10 years for Clean Slate auto-sealing",
+      "banTheBox": {
+        "applicable": true,
+        "name": "Pennsylvania Criminal History Record Information Act",
+        "statute": "18 Pa.C.S. § 9125",
+        "details": "Employers can only consider convictions that relate to the job. Philadelphia has a stronger local Fair Chance Hiring Law."
+      },
+      "process": "Clean Slate sealing is automatic after 10 years. Traditional expungement requires filing a petition.",
+      "notes": "Pennsylvania's Clean Slate Act (2018) was groundbreaking — first state with automatic sealing. Sealed records still visible to law enforcement and prosecutors."
+    },
+    "Ohio": {
+      "abbreviation": "OH",
+      "terminology": "sealing (expungement)",
+      "statutes": ["ORC § 2953.31-2953.61"],
+      "eligibleOffenses": [
+        { "category": "One felony conviction", "waitingPeriod": "1 year after final discharge" },
+        { "category": "Up to 2 misdemeanor convictions", "waitingPeriod": "1 year after final discharge" },
+        { "category": "Up to 5 convictions total (combined felony/misdemeanor)", "waitingPeriod": "1 year after final discharge — case by case" },
+        { "category": "Bail forfeitures and minor misdemeanors", "waitingPeriod": "1 year after completion" }
+      ],
+      "exclusions": ["First or second degree felonies", "Sex offenses", "Offenses against minors", "DUI/OVI", "Domestic violence (first offense may be eligible)", "Certain violent offenses"],
+      "sentenceCompletion": "Must have completed full sentence and all conditions including restitution, fines, and supervision",
+      "banTheBox": {
+        "applicable": false,
+        "name": "None statewide",
+        "details": "No statewide Ban the Box law. Columbus and Cincinnati have local ordinances for city employment."
+      },
+      "process": "File application in court of conviction. $50 filing fee. Prosecutor and victim notified. Hearing held.",
+      "notes": "Ohio expanded eligibility significantly in 2023 to allow sealing of up to 5 convictions. Previously limited to 1 felony or 2 misdemeanors."
+    },
+    "Michigan": {
+      "abbreviation": "MI",
+      "terminology": "expungement (set aside)",
+      "statutes": ["MCL § 780.621-780.621e (Clean Slate Act)"],
+      "eligibleOffenses": [
+        { "category": "Misdemeanors (unlimited)", "waitingPeriod": "3 years after sentence completion — auto-expunge after 7 years" },
+        { "category": "Up to 3 felonies (serious)", "waitingPeriod": "5 years after sentence completion" },
+        { "category": "Up to 4 felonies (non-assaultive)", "waitingPeriod": "7 years — auto-expunge after 10 years" },
+        { "category": "Marijuana offenses (pre-legalization)", "waitingPeriod": "Eligible immediately" },
+        { "category": "One-bad-night provision (multiple offenses from single incident)", "waitingPeriod": "Treated as single offense for counting purposes" }
+      ],
+      "exclusions": ["Life felonies", "Criminal sexual conduct (most degrees)", "Child abuse", "Human trafficking", "Terrorism", "Offenses punishable by 10+ years that involved violence"],
+      "sentenceCompletion": "Must have completed full sentence. Waiting period begins at completion of sentence or release from incarceration, whichever is later.",
+      "banTheBox": {
+        "applicable": false,
+        "name": "None statewide",
+        "details": "No statewide Ban the Box law. Detroit and several counties have local ordinances."
+      },
+      "process": "File application in court. $50 filing fee. Michigan Clean Slate Act added automatic expungement starting 2023.",
+      "notes": "Michigan's 2020 Clean Slate Act is one of the most comprehensive in the nation. Automatic expungement for eligible misdemeanors after 7 years and felonies after 10 years."
+    },
+    "Georgia": {
+      "abbreviation": "GA",
+      "terminology": "record restriction (sealing)",
+      "statutes": ["OCGA § 35-3-37"],
+      "eligibleOffenses": [
+        { "category": "Arrests without conviction (dismissals, nolle prosequi, not guilty)", "waitingPeriod": "Eligible immediately" },
+        { "category": "Youthful offender convictions (completed before age 21)", "waitingPeriod": "After completing sentence — limited offenses" },
+        { "category": "First offender treatment cases", "waitingPeriod": "After successful completion of sentence, automatically restricted" },
+        { "category": "Certain misdemeanors (under 2015 law)", "waitingPeriod": "4 years after completion of sentence" }
+      ],
+      "exclusions": ["Most felony convictions", "Sex offenses", "Crimes against minors", "DUI", "Family violence battery (multiple offenses)", "Serious violent felonies"],
+      "sentenceCompletion": "Must have fully completed all terms of sentence, probation, and conditions",
+      "banTheBox": {
+        "applicable": false,
+        "name": "None statewide",
+        "details": "No statewide Ban the Box law. Atlanta and several counties have executive orders for public employment."
+      },
+      "process": "Apply to the arresting agency or prosecuting attorney's office. Process varies by jurisdiction.",
+      "notes": "Georgia's expungement options are quite limited for convictions. Most convictions cannot be sealed. Focus is primarily on non-conviction records and first offender treatment."
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2026-02-21",
+    "stateCount": 10,
+    "disclaimer": "These rules are simplified for demonstration purposes. Eligibility depends on specific case details. This is general legal information, NOT legal advice. Consult an attorney for your specific situation.",
+    "source": "Compiled from state statutes and legal aid resources. Rules may have changed since compilation."
+  }
+}
